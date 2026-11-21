@@ -79,6 +79,7 @@ class Pipeline:
             log.warning("lead %s failed: %s", company_id, exc)
             result.error = str(exc)
         result.input_tokens, result.output_tokens = usage.input_tokens, usage.output_tokens
+        result.cache_read_tokens = usage.cache_read_tokens
         result.cost_usd = round(usage.cost_usd(model.model), 4)
         self.tracer.emit(
             "lead_done", lead_id=company_id, status=result.status, cost=result.cost_usd

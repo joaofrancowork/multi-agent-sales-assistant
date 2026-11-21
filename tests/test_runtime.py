@@ -160,9 +160,14 @@ def test_tracer_writes_jsonl_and_truncates(tmp_path: Path) -> None:
     assert line["event"] == "tool_call" and len(line["input"]) < 2100 and line["other"] == 1
 
 
-def test_usage_cost() -> None:
+def test_usage_cost_includes_cache_reads_and_writes() -> None:
     assert Usage(1_000_000, 100_000).cost_usd("claude-opus-5-5") == pytest.approx(6.0)
+    cached = Usage(0, 0, cache_read_tokens=1_000_000, cache_write_tokens=1_000_000)
+    assert cached.cost_usd("claude-opus-5-5") == pytest.approx(0.20 + 5.0)
     assert Usage(10, 10).cost_usd("unknown") == 0.0
+    assert Usage(25, 0, 75, 0).cache_hit_rate == 0.75
+    assert Usage().cache_hit_rate == 0.0
+    assert (Usage(1, 1, 1, 1) + Usage(1, 1, 1, 1)) == Usage(2, 2, 2, 2)
 
 
 def test_claude_model_maps_response() -> None:
@@ -174,11 +179,17 @@ def test_claude_model_maps_response() -> None:
             SimpleNamespace(type="tool_use", id="toolu_1", name="lookup", input={"city": "Porto"}),
         ],
         stop_reason="tool_use",
-        usage=SimpleNamespace(input_tokens=11, output_tokens=7),
+        usage=SimpleNamespace(
+            input_tokens=11,
+            output_tokens=7,
+            cache_read_input_tokens=900,
+            cache_creation_input_tokens=None,
+        ),
     )
     turn = ClaudeModel(client=client).create("sys", [{"role": "user", "content": "q"}], [])
     assert turn.tool_calls[0].input == {"city": "Porto"}
-    assert turn.text == "Looking up. " and turn.usage == Usage(11, 7)
+    assert turn.text == "Looking up. " and turn.usage == Usage(11, 7, 900, 0)
     kwargs = client.messages.create.call_args.kwargs
     assert kwargs["model"] == "claude-opus-5-5" and kwargs["output_config"] == {"effort": "medium"}
     assert "tool_choice" not in kwargs
+    assert kwargs["cache_control"] == {"type": "ephemeral"}

@@ -12,9 +12,14 @@ from sales_agents.schemas import LeadResult
 def summarise(results: list[LeadResult]) -> str:
     counts = Counter(r.status for r in results)
     cost = sum(r.cost_usd for r in results)
-    tokens = sum(r.input_tokens + r.output_tokens for r in results)
+    tokens = sum(r.input_tokens + r.output_tokens + r.cache_read_tokens for r in results)
+    cached = sum(r.cache_read_tokens for r in results)
     parts = [f"{counts[s]} {s}" for s in ("drafted", "needs_review", "disqualified", "failed")]
-    return f"{len(results)} leads: " + ", ".join(parts) + f" · {tokens:,} tokens · ${cost:.3f}"
+    return (
+        f"{len(results)} leads: "
+        + ", ".join(parts)
+        + f" · {tokens:,} tokens ({cached:,} cached) · ${cost:.3f}"
+    )
 
 
 def review_queue(results: list[LeadResult]) -> str:

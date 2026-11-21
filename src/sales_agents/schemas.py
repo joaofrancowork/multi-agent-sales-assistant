@@ -58,4 +58,5 @@ class LeadResult(BaseModel):
     error: str | None = None
     input_tokens: int = 0
     output_tokens: int = 0
+    cache_read_tokens: int = 0
     cost_usd: float = 0.0
