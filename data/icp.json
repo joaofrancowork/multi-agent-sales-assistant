@@ -1,0 +1,29 @@
+{
+  "seller": "Northwind Labs",
+  "product": "Northwind Booking: online booking, automatic reminders and a messaging assistant that answers customers 24/7",
+  "target_sectors": [
+    "dental clinic",
+    "beauty clinic",
+    "physiotherapy",
+    "veterinary clinic",
+    "hvac"
+  ],
+  "employees_min": 4,
+  "employees_max": 60,
+  "strong_signals": [
+    "no online booking",
+    "complaints about reaching the business by phone or message",
+    "manual or no reminders",
+    "missed or unconfirmed appointments"
+  ],
+  "disqualifiers": [
+    "already has online booking and automatic reminders",
+    "sector does not take appointments",
+    "solo practitioner (fewer than 4 employees)"
+  ],
+  "tiers": {
+    "A": "score >= 70: write a personalised email",
+    "B": "50-69: write a shorter email",
+    "C": "below 50: do not contact"
+  }
+}

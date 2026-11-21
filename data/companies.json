@@ -1,0 +1,273 @@
+[
+  {
+    "id": "c01",
+    "name": "Clínica Sorriso Azul",
+    "sector": "dental clinic",
+    "city": "Braga",
+    "employees": 14,
+    "website": "Family dental clinic with 4 dentists. Book your appointment by phone from 9:00 to 19:00. Implants, orthodontics and hygiene. Open Saturday mornings.",
+    "reviews": {
+      "rating": 4.3,
+      "count": 212,
+      "snippets": [
+        "Great dentists, but impossible to reach by phone at lunchtime.",
+        "Had to call three times to move my appointment.",
+        "Very professional team."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": false,
+      "crm": false,
+      "reminders": "none"
+    }
+  },
+  {
+    "id": "c02",
+    "name": "Estética Lumi",
+    "sector": "beauty clinic",
+    "city": "Lisbon",
+    "employees": 8,
+    "website": "Aesthetic treatments, laser and skincare. Message us on Instagram to book. New: body treatments.",
+    "reviews": {
+      "rating": 4.7,
+      "count": 389,
+      "snippets": [
+        "Love the results!",
+        "Took two days to get an answer on Instagram.",
+        "Booking is a bit chaotic."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": true,
+      "crm": false,
+      "reminders": "manual"
+    }
+  },
+  {
+    "id": "c03",
+    "name": "FrioNorte AVAC",
+    "sector": "hvac",
+    "city": "Porto",
+    "employees": 22,
+    "website": "Installation and maintenance of air conditioning and heat pumps for homes and businesses. Request a quote via our form and we call you back within 48 hours.",
+    "reviews": {
+      "rating": 3.9,
+      "count": 97,
+      "snippets": [
+        "Good installation, but the quote took a week.",
+        "Nobody called me back after I filled the form.",
+        "Technicians were on time."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": false,
+      "crm": true,
+      "reminders": "none"
+    }
+  },
+  {
+    "id": "c04",
+    "name": "Barbearia Navalha",
+    "sector": "barbershop",
+    "city": "Coimbra",
+    "employees": 3,
+    "website": "Classic cuts and beard care. Walk-ins welcome. Book online 24/7 on our booking page.",
+    "reviews": {
+      "rating": 4.9,
+      "count": 610,
+      "snippets": [
+        "Best barber in town.",
+        "Easy online booking.",
+        "Always on time."
+      ]
+    },
+    "tech": {
+      "online_booking": true,
+      "whatsapp": true,
+      "crm": false,
+      "reminders": "automatic"
+    }
+  },
+  {
+    "id": "c05",
+    "name": "Fisio+Movimento",
+    "sector": "physiotherapy",
+    "city": "Aveiro",
+    "employees": 11,
+    "website": "Physiotherapy, sports rehabilitation and pilates. Call or email to book a first assessment.",
+    "reviews": {
+      "rating": 4.6,
+      "count": 154,
+      "snippets": [
+        "Excellent physios.",
+        "Hard to book outside office hours.",
+        "They forgot to confirm my session once."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": false,
+      "crm": false,
+      "reminders": "manual"
+    }
+  },
+  {
+    "id": "c06",
+    "name": "Ginásio Atlas",
+    "sector": "gym",
+    "city": "Faro",
+    "employees": 30,
+    "website": "Gym with group classes and personal training. Members book classes in our app.",
+    "reviews": {
+      "rating": 4.1,
+      "count": 280,
+      "snippets": [
+        "Classes are great.",
+        "The app works well.",
+        "Too crowded at 7pm."
+      ]
+    },
+    "tech": {
+      "online_booking": true,
+      "whatsapp": false,
+      "crm": true,
+      "reminders": "automatic"
+    }
+  },
+  {
+    "id": "c07",
+    "name": "Veterinário Patas",
+    "sector": "veterinary clinic",
+    "city": "Setúbal",
+    "employees": 9,
+    "website": "Veterinary clinic for dogs and cats, with emergency service. Appointments by phone.",
+    "reviews": {
+      "rating": 4.4,
+      "count": 176,
+      "snippets": [
+        "They saved my dog.",
+        "The phone is always busy.",
+        "Long wait without an appointment."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": false,
+      "crm": false,
+      "reminders": "none"
+    }
+  },
+  {
+    "id": "c08",
+    "name": "Advocacia Reis & Lopes",
+    "sector": "law firm",
+    "city": "Lisbon",
+    "employees": 6,
+    "website": "Corporate and labour law. Contact us by email for a consultation.",
+    "reviews": {
+      "rating": 4.8,
+      "count": 21,
+      "snippets": [
+        "Very competent.",
+        "Responsive by email."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": false,
+      "crm": true,
+      "reminders": "none"
+    }
+  },
+  {
+    "id": "c09",
+    "name": "Clínica Dentária Mar",
+    "sector": "dental clinic",
+    "city": "Viana do Castelo",
+    "employees": 1,
+    "website": "Dr. Marta Silva, dentist. Appointments by phone.",
+    "reviews": {
+      "rating": 5.0,
+      "count": 12,
+      "snippets": [
+        "Lovely dentist."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": false,
+      "crm": false,
+      "reminders": "none"
+    }
+  },
+  {
+    "id": "c10",
+    "name": "Restaurante Tasca do Zé",
+    "sector": "restaurant",
+    "city": "Évora",
+    "employees": 7,
+    "website": "Traditional Alentejo food. No reservations, first come first served.",
+    "reviews": {
+      "rating": 4.5,
+      "count": 840,
+      "snippets": [
+        "Amazing food.",
+        "Queue on weekends."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": false,
+      "crm": false,
+      "reminders": "none"
+    }
+  },
+  {
+    "id": "c11",
+    "name": "Spa Essência",
+    "sector": "beauty clinic",
+    "city": "Cascais",
+    "employees": 16,
+    "website": "Day spa with massages, facials and couples packages. Book by phone or email; gift vouchers available.",
+    "reviews": {
+      "rating": 4.2,
+      "count": 301,
+      "snippets": [
+        "Relaxing place.",
+        "Booked by email and never got a confirmation.",
+        "Showed up and they had no record of my booking."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": true,
+      "crm": false,
+      "reminders": "manual"
+    }
+  },
+  {
+    "id": "c12",
+    "name": "ClimaCasa Instalações",
+    "sector": "hvac",
+    "city": "Leiria",
+    "employees": 5,
+    "website": "Small HVAC installer. Call us for a free quote.",
+    "reviews": {
+      "rating": 4.0,
+      "count": 33,
+      "snippets": [
+        "Fair prices.",
+        "Took a while to schedule the visit."
+      ]
+    },
+    "tech": {
+      "online_booking": false,
+      "whatsapp": true,
+      "crm": false,
+      "reminders": "none"
+    }
+  }
+]
