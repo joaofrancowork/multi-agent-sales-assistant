@@ -39,6 +39,9 @@ class ClaudeModel:
             messages=messages,
             tools=tools,
             output_config={"effort": self._effort},
+            # Tools and the system prompt are identical for every lead an agent handles,
+            # so the prefix is cached and later requests read it at a fraction of the price.
+            cache_control={"type": "ephemeral"},
         )
         calls = [
             ToolCall(id=block.id, name=block.name, input=dict(block.input))
@@ -51,5 +54,10 @@ class ClaudeModel:
             text=text,
             tool_calls=calls,
             stop_reason=response.stop_reason or "end_turn",
-            usage=Usage(response.usage.input_tokens, response.usage.output_tokens),
+            usage=Usage(
+                response.usage.input_tokens,
+                response.usage.output_tokens,
+                response.usage.cache_read_input_tokens or 0,
+                response.usage.cache_creation_input_tokens or 0,
+            ),
         )

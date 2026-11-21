@@ -131,6 +131,7 @@ class Agent(Generic[Out]):
                 tool_calls=[c.name for c in reply.tool_calls],
                 input_tokens=reply.usage.input_tokens,
                 output_tokens=reply.usage.output_tokens,
+                cache_read_tokens=reply.usage.cache_read_tokens,
                 latency_ms=round((time.perf_counter() - started) * 1000, 1),
             )
             if reply.stop_reason == "refusal":
