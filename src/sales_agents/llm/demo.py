@@ -12,7 +12,7 @@ import json
 import re
 from typing import Any
 
-from sales_agents.llm.base import ModelTurn
+from sales_agents.llm.base import ModelTurn, Usage
 from sales_agents.llm.scripted import tool_turn
 from sales_agents.tools.scoring import COMPLAINT_WORDS
 
@@ -43,10 +43,13 @@ class DemoModel:
         submit = next(t["name"] for t in tools if t["name"].startswith("submit_"))
         first_turn = len(messages) == 1
         if submit == "submit_research":
-            return self._research(messages, first_turn)
-        if submit == "submit_qualify":
-            return self._qualify(messages, first_turn)
-        return self._write(messages, first_turn)
+            turn = self._research(messages, first_turn)
+        elif submit == "submit_qualify":
+            turn = self._qualify(messages, first_turn)
+        else:
+            turn = self._write(messages, first_turn)
+        turn.usage = Usage()  # no model, no tokens
+        return turn
 
     def _research(self, messages: list[dict[str, Any]], first: bool) -> ModelTurn:
         cid = re.search(r"company (\w+)", _task(messages))
